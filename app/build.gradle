@@ -27,6 +27,18 @@ android {
         exclude 'META-INF/license.txt'
         exclude 'META-INF/notice.txt'
     }
+
+    /**
+     * http://tools.android.com/tech-docs/unit-testing-support#TOC-Method-...-not-mocked.-
+     */
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+        disable 'InvalidPackage'
+    }
 }
 
 dependencies {
