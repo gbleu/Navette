@@ -13,13 +13,15 @@ import static com.altares.bleug.navette.com.altares.bleug.navette.models.Way.TO;
 
 /**
  * Created by bleug on 26/05/2016.
+ * <p/>
+ * Maps Service
  */
 public class MapsService {
     private static final String API_URL = "https://maps.googleapis.com/maps/api/distancematrix/json";
     private static final String API_KEY = "AIzaSyD4BZ2WD-XKEfCgRM2SG8byGiUn9Lsc8TE";
     private static final String LA_DEFENSE_PLACE_ID = "ChIJed0JWwRl5kcRNQRpOlQOQ1Q";
     private static final String LE_CAPITOLE_PLACE_ID = "ChIJHUkloO1k5kcRSH_vuPgKV8I";
-    private static MapsService ourInstance = new MapsService();
+    private static final MapsService ourInstance = new MapsService();
 
     private MapsService() {
     }
@@ -47,7 +49,7 @@ public class MapsService {
         }
     }
 
-    public ObjectNode callDistanceMatrix(String originPlaceId, String destinPlaceId) {
+    private ObjectNode callDistanceMatrix(String originPlaceId, String destinPlaceId) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(API_URL)
                 .queryParam("origins", "place_id:" + originPlaceId)
                 .queryParam("destinations", "place_id:" + destinPlaceId)

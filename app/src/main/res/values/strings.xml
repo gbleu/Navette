@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Navette</string>
+    <string name="traffic_modifier">%1$i min.</string>
+    <string name="traffic_modifier_placeholder">Traffic modifier</string>
 </resources>
