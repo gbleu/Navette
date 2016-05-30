@@ -101,7 +101,7 @@ public class Passage implements Comparable<Passage> {
     }
 
     private Calendar trim(Calendar cal) {
-        return new GregorianCalendar(0, 0, 0, cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), 0);
+        return cal != null ? new GregorianCalendar(0, 0, 0, cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), 0) : null;
     }
 
 }
