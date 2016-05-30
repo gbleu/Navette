@@ -50,19 +50,21 @@ public class MapsService {
     }
 
     private ObjectNode callDistanceMatrix(String originPlaceId, String destinPlaceId) {
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(API_URL)
-                .queryParam("origins", "place_id:" + originPlaceId)
-                .queryParam("destinations", "place_id:" + destinPlaceId)
-                .queryParam("departure_time", "now")
-                .queryParam("traffic_model", "pessimistic")
-                .queryParam("key", API_KEY);
-
         // Create a new RestTemplate instance
         RestTemplate restTemplate = new RestTemplate();
         // Add the JSON message converter
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         // Make the HTTP GET request, marshaling the response to an ObjectNode
-        return restTemplate.getForObject(builder.toUriString(), ObjectNode.class);
+        return restTemplate.getForObject(buildUrl(API_URL, originPlaceId, destinPlaceId, API_KEY), ObjectNode.class);
+    }
+
+    public String buildUrl(String url, String originPlaceId, String destinPlaceId, String apiKey) {
+        return UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam("origins", "place_id:" + originPlaceId)
+                .queryParam("destinations", "place_id:" + destinPlaceId)
+                .queryParam("departure_time", "now")
+                .queryParam("traffic_model", "pessimistic")
+                .queryParam("key", apiKey).toUriString();
     }
 
 }
