@@ -1,1 +1,1 @@
-# Navette [![Build Status](https://travis-ci.org/gbleu/Navette.svg?branch=master)](https://travis-ci.org/gbleu/Navette)
+# Navette [![Build Status](https://travis-ci.org/gbleu/Navette.svg?branch=master)](https://travis-ci.org/gbleu/Navette) [![codecov](https://codecov.io/gh/gbleu/Navette/branch/master/graph/badge.svg)](https://codecov.io/gh/gbleu/Navette)
