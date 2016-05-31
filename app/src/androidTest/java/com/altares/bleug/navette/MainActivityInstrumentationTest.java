@@ -12,6 +12,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.CoreMatchers.not;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -25,7 +26,7 @@ public class MainActivityInstrumentationTest {
 
     @Test
     public void testMainActivity() {
-        onView(withId(R.id.trafficModifierTextView)).check(matches(withText("Traffic modifier")));
+        onView(withId(R.id.trafficModifierTextView)).check(matches(not(withText("Traffic modifier"))));
     }
 
 }

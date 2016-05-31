@@ -12,6 +12,7 @@ import com.altares.bleug.navette.com.altares.bleug.navette.services.MapsService;
 import static com.altares.bleug.navette.com.altares.bleug.navette.models.Way.FROM;
 
 public class MainActivity extends AppCompatActivity {
+    private static final long REFRESH_INTERVAL = 60000;
 
     private Handler mHandler;
 
@@ -19,17 +20,20 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             new UpdateTrafficModifier().execute();
 
-            MainActivity.this.mHandler.postDelayed(m_Runnable, 5000);
+            MainActivity.this.mHandler.postDelayed(m_Runnable, REFRESH_INTERVAL);
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        new UpdateTrafficModifier().execute();
+
         setContentView(R.layout.activity_main);
 
         this.mHandler = new Handler();
-        this.mHandler.postDelayed(m_Runnable, 5000);
+        this.mHandler.postDelayed(m_Runnable, REFRESH_INTERVAL);
     }
 
     private class UpdateTrafficModifier extends AsyncTask<Object, Object, Integer> {
