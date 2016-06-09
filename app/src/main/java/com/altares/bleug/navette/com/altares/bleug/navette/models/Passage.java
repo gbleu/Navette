@@ -2,7 +2,6 @@ package com.altares.bleug.navette.com.altares.bleug.navette.models;
 
 import android.support.annotation.NonNull;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -10,12 +9,10 @@ import java.util.Locale;
 
 /**
  * Created by bleug on 27/05/2016.
- * <p/>
+ * <p>
  * Passage represents a departure time of the shuttle
  */
 public class Passage implements Comparable<Passage> {
-    private static final DateFormat DF = new SimpleDateFormat("HH:mm", Locale.US);
-
     private Way way;
     private Calendar time;
     private boolean pmr = false;
@@ -66,7 +63,7 @@ public class Passage implements Comparable<Passage> {
     }
 
     public String timeToString() {
-        return time != null ? DF.format(time.getTime()) : "";
+        return time != null ? new SimpleDateFormat("HH:mm", Locale.US).format(time.getTime()) : "";
     }
 
     @Override
