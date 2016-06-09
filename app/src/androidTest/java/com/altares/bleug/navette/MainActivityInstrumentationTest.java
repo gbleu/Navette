@@ -26,6 +26,7 @@ public class MainActivityInstrumentationTest {
 
     @Test
     public void testMainActivity() {
+        onView(withId(R.id.nextPassageTextView)).check(matches(not(withText("Next"))));
         onView(withId(R.id.trafficModifierTextView)).check(matches(not(withText("Traffic modifier"))));
     }
 

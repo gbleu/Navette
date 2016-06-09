@@ -14,9 +14,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:text="@string/traffic_modifier_placeholder"
+        android:textIsSelectable="false"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/nextPassageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/trafficModifierTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/trafficModifierTextView"
+        android:text="@string/next_passage_placeholder"
         android:textIsSelectable="false"
         android:textSize="30sp" />
 
